@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DUNK-O-METER 9000: International Biscuit Structural Integrity Laboratory. Advanced scientific biscuit dunking simulation predicting biscuit survival in tea.">
+  <title>🍪 DUNK-O-METER 9000 // International Biscuit Structural Integrity Laboratory</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased">
+
+  <!-- Ambient Animated Background Grid & Orbs -->
+  <div class="cyber-grid-bg" aria-hidden="true"></div>
+  <div class="ambient-glow-orb glow-orb-1" aria-hidden="true"></div>
+  <div class="ambient-glow-orb glow-orb-2" aria-hidden="true"></div>
+
+  <!-- Decorative Floating Technobabble Equations -->
+  <div class="floating-equation" style="top: 18%; left: 8%;" aria-hidden="true">B + T × D = ???</div>
+  <div class="floating-equation" style="top: 32%; right: 7%; animation-delay: -5s;" aria-hidden="true">CRISPINESS / TIME = REGRET</div>
+  <div class="floating-equation" style="top: 65%; left: 5%; animation-delay: -9s;" aria-hidden="true">DUNK FORCE × TEMPERATURE = BISCUIT CHAOS</div>
+  <div class="floating-equation" style="top: 78%; right: 9%; animation-delay: -14s;" aria-hidden="true">STRUCTURAL INTEGRITY = 42%</div>
+
+  <!-- Top Cyber Control Bar -->
+  <header class="cyber-top-bar">
+    <div class="top-bar-inner">
+      <div class="logo-tag">
+        <span class="logo-text">🍪 DUNK-O-METER 9000</span>
+        <span class="lab-status-badge">
+          <span class="status-dot dot-green"></span>
+          SYS.OPERATIONAL
+        </span>
+      </div>
+      <div class="header-actions">
+        <button id="audio-toggle-btn" class="header-btn" title="Toggle Synthesized Audio Effects">🔊 AUDIO: ON</button>
+        <button id="crt-toggle-btn" class="header-btn" title="Toggle CRT Scanline Overlay">📺 CRT: OFF</button>
+        <button id="blackbox-btn" class="header-btn" title="View Lab Blackbox Log">📊 LAB LOGS</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero-section" id="hero-screen">
+      <div class="hero-badge-tag font-mono text-cyan-400 text-xs mb-2 tracking-widest uppercase">
+        // CLASSIFIED BISCUIT RESEARCH FACILITY
+      </div>
+      <h1 class="glitch-title">🍪 DUNK-O-METER 9000</h1>
+      <h2 class="hero-subtitle">INTERNATIONAL BISCUIT STRUCTURAL INTEGRITY LABORATORY</h2>
+      
+      <p class="hero-tagline">
+        “Protecting biscuits from tea since absolutely nobody asked.”
+      </p>
+      <p class="hero-secondary-tagline">
+        “Advanced science for a problem humanity did not need solved.”
+      </p>
+
+      <!-- Fake Status Telemetry Grid -->
+      <div class="telemetry-ticker">
+        <div class="telemetry-item">
+          <span class="status-dot dot-green"></span>
+          <span>SYSTEM STATUS: <b class="text-green-400">OPERATIONAL</b></span>
+        </div>
+        <div class="telemetry-item">
+          <span class="status-dot dot-cyan"></span>
+          <span>BISCUIT DETECTOR: <b class="text-cyan-400">ONLINE</b></span>
+        </div>
+        <div class="telemetry-item">
+          <span class="status-dot dot-amber"></span>
+          <span>TEA SENSOR: <b class="text-amber-400">READY</b></span>
+        </div>
+        <div class="telemetry-item">
+          <span class="status-dot dot-cyan"></span>
+          <span>CRUMB ENGINE: <b class="text-slate-200">STANDBY</b></span>
+        </div>
+        <div class="telemetry-item">
+          <span class="status-dot dot-green"></span>
+          <span>SCIENTIFIC VALUE: <b class="text-red-400">0.00%</b></span>
+        </div>
+      </div>
+
+      <!-- Start Experiment Button -->
+      <button id="hero-start-btn" class="btn-primary-glow">
+        <span class="btn-biscuit-icon">🍪</span>
+        <span>🧪 START USELESS EXPERIMENT</span>
+      </button>
+
+      <!-- Animated Lab Decor -->
+      <div class="lab-equipment-decor" aria-hidden="true">
+        <span class="beaker-icon-anim" title="Test Tube">🧪</span>
+        <span class="beaker-icon-anim" style="animation-delay: -0.8s;" title="Flask">⚗️</span>
+        <span class="beaker-icon-anim" style="animation-delay: -1.6s;" title="Liquid">💧</span>
+        <span class="beaker-icon-anim" style="animation-delay: -2.2s;" title="Microscope">🔬</span>
+      </div>
+    </section>
+
+    <!-- Laboratory Core Interface -->
+    <div class="app-container" id="laboratory-core">
+      <div class="lab-grid-layout">
+
+        <!-- Left Column: Controls, Biscuits & Beverages -->
+        <div class="controls-column">
+          
+          <!-- Biscuit Selection Database Panel -->
+          <section class="glass-panel" id="biscuit-section">
+            <div class="section-header">
+              <h3 class="section-title">
+                <span>🍪</span>
+                <span>SPECIMEN DATABASE</span>
+              </h3>
+              <span class="section-tag">// 18+ KNOWN BISCUITS</span>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-input-wrapper">
+              <input type="text" id="biscuit-search" class="cyber-input" placeholder="🔍 Search biscuit by name (e.g. Parle-G, Bourbon, Oreo, Marie)...">
+            </div>
+
+            <!-- Biscuit Selection Grid -->
+            <div class="biscuit-scroll-container">
+              <div id="biscuit-grid" class="biscuit-card-grid">
+                <!-- Populated dynamically by app.js -->
+              </div>
+            </div>
+
+            <!-- Custom Biscuit Parameters (shown when custom selected) -->
+            <div id="custom-biscuit-panel" class="hidden specimen-preview-box" style="margin-top: 1rem; border-color: var(--cyan-glow);">
+              <h4 class="font-mono text-cyan-400 text-xs mb-3 font-bold">ENTER UNKNOWN BISCUIT SPECIMEN</h4>
+              <div style="display: grid; gap: 0.75rem;">
+                <input type="text" id="custom-biscuit-name" class="cyber-input" placeholder="Specimen Name (e.g. Grandma's Secret Cookie)">
+                <div class="control-label-row">
+                  <span class="text-slate-400">STRUCTURAL STRENGTH</span>
+                  <input type="range" id="custom-biscuit-strength" min="20" max="95" value="60" class="cyber-slider" style="width: 50%;">
+                </div>
+                <div class="control-label-row">
+                  <span class="text-slate-400">ABSORPTION RATE</span>
+                  <input type="range" id="custom-biscuit-absorption" min="0.5" max="1.6" step="0.1" value="1.0" class="cyber-slider" style="width: 50%;">
+                </div>
+                <div class="control-label-row">
+                  <span class="text-slate-400">CRUNCH / CRISPINESS</span>
+                  <input type="range" id="custom-biscuit-crunch" min="30" max="95" value="75" class="cyber-slider" style="width: 50%;">
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Biscuit Detailed Telemetry Card -->
+            <div class="specimen-preview-box" id="specimen-preview-box">
+              <div class="specimen-display-row">
+                <div class="specimen-large-thumb" id="preview-biscuit-svg">
+                  <!-- Rendered via chamber.js -->
+                </div>
+                <div style="min-width: 0; flex: 1;">
+                  <h4 class="font-heading text-lg font-bold text-white tracking-wide" id="preview-biscuit-name">PARLE-G</h4>
+                  <div class="font-mono text-xs text-cyan-400 font-semibold mt-0.5" id="preview-biscuit-class">CLASSIFICATION: TEA VETERAN</div>
+                  <p class="text-xs text-slate-400 mt-1.5 leading-relaxed" id="preview-biscuit-lore">
+                    Legendary tea companion. Absorbs chai at near supersonic speeds.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Stat gauges -->
+              <div class="specimen-stats-grid">
+                <div class="stat-cell">
+                  <span class="stat-label">STRUCTURAL STRENGTH</span>
+                  <span class="stat-val text-green-400" id="preview-biscuit-strength">46/100</span>
+                </div>
+                <div class="stat-cell">
+                  <span class="stat-label">ABSORPTION RATING</span>
+                  <span class="stat-val text-amber-400" id="preview-biscuit-absorption">1.35x</span>
+                </div>
+                <div class="stat-cell">
+                  <span class="stat-label">CRUNCH FACTOR</span>
+                  <span class="stat-val text-cyan-400" id="preview-biscuit-crunch">72%</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Beverage Selection Panel -->
+          <section class="glass-panel" id="beverage-section" style="margin-top: 1.5rem;">
+            <div class="section-header">
+              <h3 class="section-title">
+                <span>☕</span>
+                <span>BEVERAGE SELECTION</span>
+              </h3>
+              <span class="section-tag">// LIQUID ENVIRONMENT</span>
+            </div>
+
+            <div id="beverage-grid" class="beverage-card-grid">
+              <!-- Populated dynamically by app.js -->
+            </div>
+
+            <!-- Custom Drink Name Input -->
+            <div id="custom-drink-panel" class="hidden" style="margin-top: 1rem;">
+              <input type="text" id="custom-drink-name" class="cyber-input" placeholder="Enter Custom Liquid Formula (e.g. Radioactive Chai)">
+            </div>
+          </section>
+
+          <!-- Experiment Control Console Panel -->
+          <section class="glass-panel glass-panel-amber" id="control-console" style="margin-top: 1.5rem;">
+            <div class="section-header">
+              <h3 class="section-title">
+                <span>🎛️</span>
+                <span>EXPERIMENT SETTINGS</span>
+              </h3>
+              <span class="section-tag text-amber-400">// CALIBRATION</span>
+            </div>
+
+            <div class="control-grid">
+              <!-- Dunk Duration Slider -->
+              <div class="control-item">
+                <div class="control-label-row">
+                  <span class="font-bold text-white">DUNK DURATION</span>
+                  <span id="duration-display" class="font-bold text-cyan-400 font-mono text-base">6.0 SEC</span>
+                </div>
+                <input type="range" id="duration-slider" min="1.0" max="15.0" step="0.5" value="6.0" class="cyber-slider">
+                <div class="flex justify-between items-center mt-1">
+                  <span class="text-[11px] font-mono text-slate-500">1.0s (Quick Dip)</span>
+                  <span id="duration-warning" class="text-xs font-mono text-yellow-400 font-bold">MODERATE DISSOLUTION RISK</span>
+                  <span class="text-[11px] font-mono text-slate-500">15.0s (Death Wish)</span>
+                </div>
+              </div>
+
+              <!-- Beverage Temperature -->
+              <div class="control-item">
+                <div class="control-label-row">
+                  <span class="font-bold text-white">BEVERAGE TEMPERATURE</span>
+                </div>
+                <div class="setting-btn-group">
+                  <button class="setting-btn" data-temp="cold">❄️ Cold</button>
+                  <button class="setting-btn" data-temp="normal">🌡️ Normal</button>
+                  <button class="setting-btn active-setting" data-temp="hot">🔥 Hot</button>
+                </div>
+              </div>
+
+              <!-- Dunking Style -->
+              <div class="control-item">
+                <div class="control-label-row">
+                  <span class="font-bold text-white">DUNKING TECHNIQUE</span>
+                </div>
+                <div class="setting-btn-group">
+                  <button class="setting-btn" data-style="gentle" title="Professional biscuit handling">🫳 Gentle</button>
+                  <button class="setting-btn active-setting" data-style="normal" title="Standard human impatience">👇 Normal</button>
+                  <button class="setting-btn" data-style="aggressive" title="Biscuit violence detected">💥 Aggressive</button>
+                </div>
+              </div>
+
+              <!-- Biscuit Specimen Size -->
+              <div class="control-item">
+                <div class="control-label-row">
+                  <span class="font-bold text-white">SPECIMEN CALIBER (SIZE)</span>
+                </div>
+                <div class="setting-btn-group">
+                  <button class="setting-btn" data-size="small">Small</button>
+                  <button class="setting-btn active-setting" data-size="medium">Medium</button>
+                  <button class="setting-btn" data-size="large">Large</button>
+                </div>
+              </div>
+
+              <!-- Primary Action Launch Button -->
+              <button id="start-experiment-btn" class="btn-primary-glow" style="width: 100%; justify-content: center; margin-top: 1rem;">
+                <span class="btn-biscuit-icon">🧪</span>
+                <span>INITIALIZE DUNK SIMULATION</span>
+              </button>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Right Column: The Experiment Chamber (Centerpiece) -->
+        <div class="chamber-column">
+          <section class="glass-panel" id="chamber-section" style="position: sticky; top: 5rem;">
+            <div class="section-header">
+              <h3 class="section-title">
+                <span>🔬</span>
+                <span>SIMULATION CHAMBER 9000</span>
+              </h3>
+              <span class="section-tag">// LIVE PHYSICS VIEWPORT</span>
+            </div>
+
+            <!-- Simulation Chamber Viewport -->
+            <div class="chamber-stage" id="chamber-container">
+              <!-- Background Grid & Scales -->
+              <div class="chamber-grid-lines" aria-hidden="true"></div>
+              <div class="chamber-scale-marker" style="top: 25%;">[+75mm]</div>
+              <div class="chamber-scale-marker" style="top: 50%;">[+50mm]</div>
+              <div class="chamber-scale-marker" style="top: 75%;">[+25mm]</div>
+
+              <!-- Top Telemetry Row -->
+              <div class="chamber-top-telemetry">
+                <span class="font-mono text-xs text-slate-400">SENSOR: LIVE</span>
+                <span id="chamber-timer" class="digital-stopwatch">00.00 SEC</span>
+                <span class="font-mono text-xs text-cyan-400">CLAW: ARMED</span>
+              </div>
+
+              <!-- Suspended Hydraulic Servo Claw Arm -->
+              <div class="claw-mechanism" id="claw-arm">
+                <div class="claw-piston-stem"></div>
+                <div class="claw-head">
+                  <div class="claw-finger"></div>
+                  <div class="claw-finger"></div>
+                </div>
+                <!-- Biscuit Mount -->
+                <div class="biscuit-mount" id="claw-biscuit">
+                  <!-- Populated by chamber.js -->
+                </div>
+              </div>
+
+              <!-- Steam Rising from Liquid -->
+              <div class="steam-wrapper" id="steam-container">
+                <div class="steam-particle" style="left: 20%; animation-delay: 0s;"></div>
+                <div class="steam-particle" style="left: 45%; animation-delay: 1.2s;"></div>
+                <div class="steam-particle" style="left: 70%; animation-delay: 0.6s;"></div>
+              </div>
+
+              <!-- Beaker Container -->
+              <div class="lab-beaker">
+                <div class="beaker-graduation-marks" aria-hidden="true">
+                  <div class="beaker-mark long"></div>
+                  <div class="beaker-mark"></div>
+                  <div class="beaker-mark long"></div>
+                  <div class="beaker-mark"></div>
+                  <div class="beaker-mark long"></div>
+                </div>
+
+                <!-- Liquid in beaker -->
+                <div class="beaker-liquid" id="chamber-liquid">
+                  <div class="liquid-surface-wave" id="liquid-surface"></div>
+                  <div id="bubbles-container"></div>
+                </div>
+
+                <!-- Crumb & drip physics particles -->
+                <div id="crumbs-container" style="position: absolute; inset: 0; pointer-events: none;"></div>
+              </div>
+
+              <!-- Bottom Chamber Controls & Status -->
+              <div style="z-index: 20; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 0.6rem;">
+                <div id="chamber-status" class="chamber-telemetry text-cyan-400">
+                  SPECIMEN LOADED // READY FOR IMMERSION
+                </div>
+
+                <!-- Section 14: Emergency Eject Protocol Button -->
+                <button id="emergency-eject-btn" class="btn-emergency-abort opacity-50 pointer-events-none" disabled>
+                  <span>🚨</span>
+                  <span>EMERGENCY ABORT &amp; CONSUME!</span>
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+      </div>
+
+      <!-- Results Dashboard Section (Revealed after Dunk) -->
+      <section class="glass-panel results-container hidden" id="results-section">
+        <div class="section-header">
+          <h3 class="section-title">
+            <span>📊</span>
+            <span>OFFICIAL SCIENTIFIC RESULTS &amp; ANALYSIS</span>
+          </h3>
+          <span class="section-tag text-green-400">// EXPERIMENT COMPLETE</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 260px 1fr; gap: 2rem; align-items: center;">
+          <!-- Circular Survival Gauge -->
+          <div id="circular-gauge-wrapper">
+            <div class="circular-gauge-container">
+              <svg class="circular-gauge-svg" width="220" height="220" viewBox="0 0 220 220">
+                <circle class="gauge-bg-circle" cx="110" cy="110" r="88" />
+                <circle class="gauge-meter-circle" id="circular-gauge-circle" cx="110" cy="110" r="88" />
+              </svg>
+              <div class="gauge-center-content">
+                <span class="gauge-percentage" id="circular-gauge-text">0%</span>
+                <span class="gauge-label">SURVIVAL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rank Banner & Humorous Quote -->
+          <div>
+            <div class="rank-display-panel">
+              <div class="rank-badge-title">
+                <span id="rank-badge">🟢</span>
+                <span id="rank-title" style="color: var(--green-glow);">BISCUIT CHAMPION</span>
+              </div>
+              <p class="rank-submessage" id="rank-message">
+                This biscuit fears no beverage.
+              </p>
+              <div class="conclusion-quote-box" id="conclusion-text">
+                “Our scientists recommend immediate consumption.”
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Telemetry Cards Grid -->
+        <div class="telemetry-cards-grid">
+          <!-- Card 1: Survival -->
+          <div class="telemetry-card">
+            <div class="telemetry-card-title">
+              <span>🧪</span>
+              <span>SURVIVAL PROBABILITY</span>
+            </div>
+            <div class="telemetry-card-val text-green-400" id="metric-survival">0%</div>
+            <div class="text-[11px] font-mono text-slate-500">Chance of escaping in one piece</div>
+          </div>
+
+          <!-- Card 2: Break Risk -->
+          <div class="telemetry-card">
+            <div class="telemetry-card-title">
+              <span>⚠️</span>
+              <span>CATASTROPHIC BREAK RISK</span>
+            </div>
+            <div class="telemetry-card-val text-red-500" id="metric-break-risk">0%</div>
+            <div class="text-[11px] font-mono text-slate-500">Likelihood of bottom tea disaster</div>
+          </div>
+
+          <!-- Card 3: Breaking Time -->
+          <div class="telemetry-card">
+            <div class="telemetry-card-title">
+              <span>⏱️</span>
+              <span>ESTIMATED BREAK TIME</span>
+            </div>
+            <div class="telemetry-card-val text-amber-400" id="metric-breaking-time">0.0s</div>
+            <div class="text-[11px] font-mono text-slate-500">Theoretical structural limit</div>
+          </div>
+
+          <!-- Card 4: Crispiness -->
+          <div class="telemetry-card">
+            <div class="telemetry-card-title">
+              <span>🍪</span>
+              <span>CRISPINESS REMAINING</span>
+            </div>
+            <div class="telemetry-card-val text-cyan-400" id="metric-crispiness">0%</div>
+            <div class="progress-track">
+              <div class="progress-bar-fill" id="bar-crispiness" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Card 5: Softness -->
+          <div class="telemetry-card">
+            <div class="telemetry-card-title">
+              <span>💧</span>
+              <span>SOGGINESS / SOFTNESS</span>
+            </div>
+            <div class="telemetry-card-val text-yellow-400" id="metric-softness">0%</div>
+            <div class="progress-track">
+              <div class="progress-bar-fill" id="bar-softness" style="width: 0%; background: #facc15;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result Action Buttons -->
+        <div class="results-actions-row">
+          <button id="repeat-experiment-btn" class="header-btn" style="padding: 0.8rem 1.6rem; font-size: 0.9rem;">
+            🔄 RETEST SPECIMEN
+          </button>
+          <button id="view-cert-btn" class="btn-primary-glow" style="margin-top: 0; padding: 0.8rem 1.8rem; font-size: 0.9rem;">
+            📜 VIEW / PRINT OFFICIAL LAB CERTIFICATE
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Fake Scientific Scanning Fullscreen Overlay -->
+  <div id="analysis-overlay" class="analysis-overlay-backdrop hidden" aria-live="polite">
+    <div style="max-width: 500px; width: 100%;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;" class="animate-bounce">🔬</div>
+      <h3 class="font-heading text-xl font-bold text-white tracking-widest mb-2">RUNNING MOLECULAR SCAN</h3>
+      <div id="analysis-text" class="font-mono text-cyan-400 text-sm mb-6 h-6">SCANNING BISCUIT MOLECULES...</div>
+      
+      <div class="progress-track" style="height: 10px; border: 1px solid var(--cyan-glow);">
+        <div id="analysis-progress-bar" class="progress-bar-fill" style="width: 0%;"></div>
+      </div>
+      <div class="font-mono text-[11px] text-slate-500 mt-3">INTERNATIONAL BISCUIT DATABASE // REAL-TIME CALIBRATION</div>
+    </div>
+  </div>
+
+  <!-- Official Lab Structural Integrity Certificate Modal -->
+  <div id="certificate-modal" class="cyber-modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="certificate-frame">
+      <div class="cert-corner-decor cert-tl"></div>
+      <div class="cert-corner-decor cert-tr"></div>
+      <div class="cert-corner-decor cert-bl"></div>
+      <div class="cert-corner-decor cert-br"></div>
+
+      <div style="text-align: center; border-bottom: 2px solid rgba(0,240,255,0.3); padding-bottom: 1.25rem;">
+        <span class="font-mono text-[11px] text-cyan-400 tracking-widest uppercase">INTERNATIONAL BISCUIT STRUCTURAL INTEGRITY COUNCIL</span>
+        <h2 class="font-heading text-2xl font-black text-white mt-1">OFFICIAL CERTIFICATE OF STRUCTURAL INTEGRITY</h2>
+        <div class="font-mono text-xs text-slate-400 mt-1">SERIAL: <span id="cert-serial" class="text-cyan-400">BISCUIT-LAB-90218</span> // DATE: <span id="cert-date"></span></div>
+      </div>
+
+      <div style="display: flex; gap: 1.5rem; align-items: center; margin: 1.5rem 0;">
+        <div id="cert-biscuit-thumb" style="width: 90px; height: 90px; background: rgba(0,0,0,0.4); border-radius: 8px; padding: 4px; border: 1px solid rgba(0,240,255,0.3); flex-shrink: 0;"></div>
+        <div style="font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.8; color: #cbd5e1;">
+          <div>SPECIMEN EVALUATED: <b id="cert-specimen" class="text-white">PARLE-G</b></div>
+          <div>BEVERAGE AGENT: <b id="cert-drink" class="text-amber-400">HOT CHAI (TEA)</b></div>
+          <div>IMMERSION DURATION: <b id="cert-duration" class="text-cyan-400">6.0 SECONDS</b></div>
+          <div>SURVIVAL PROBABILITY: <b id="cert-survival" class="text-green-400">82%</b></div>
+        </div>
+      </div>
+
+      <div style="background: rgba(0,240,255,0.05); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--cyan-glow); font-family: var(--font-mono); font-size: 0.9rem; color: #38bdf8;">
+        VERDICT: <span id="cert-rank" class="font-bold">🟢 BISCUIT CHAMPION</span>
+        <div class="text-xs text-slate-400 mt-1" id="cert-conclusion">“This biscuit fears no beverage.”</div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem;">
+        <div class="official-stamp">TOTALLY USELESS</div>
+        <div style="text-align: right; font-family: var(--font-mono); font-size: 0.75rem; color: #64748b;">
+          <div>CHIEF BISCUIT PHYSICIST</div>
+          <div style="font-family: cursive; font-size: 1.2rem; color: #38bdf8;">Dr. Dunkington Crumble</div>
+        </div>
+      </div>
+
+      <div class="results-actions-row no-print" style="margin-top: 1.75rem;">
+        <button id="print-cert-btn" class="header-btn" style="padding: 0.6rem 1.2rem;">🖨️ PRINT / SAVE CERTIFICATE</button>
+        <button id="close-cert-btn" class="header-btn" style="padding: 0.6rem 1.2rem; border-color: #64748b; color: #cbd5e1;">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 14: Emergency Salvage Protocol Modal -->
+  <div id="emergency-modal" class="cyber-modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="glass-panel" style="max-width: 500px; width: 100%; border-color: #ef4444; box-shadow: 0 0 40px rgba(239, 68, 68, 0.4);">
+      <div style="text-align: center;">
+        <div style="font-size: 3.5rem; margin-bottom: 0.5rem;" class="animate-bounce">🚨</div>
+        <h3 class="font-heading text-xl font-black text-red-500 tracking-wider">EMERGENCY SALVAGE EXECUTED!</h3>
+        <p class="font-mono text-xs text-slate-300 mt-1">SERVO RAPID RETRACTION INITIATED</p>
+      </div>
+
+      <div class="font-mono text-xs text-slate-300 my-4 p-3 bg-red-950/40 border border-red-800/60 rounded leading-relaxed">
+        <div>SPECIMEN: <b id="emergency-specimen" class="text-white">Bourbon</b></div>
+        <div>LIQUID: <b id="emergency-drink" class="text-amber-400">Hot Chai</b></div>
+        <div>TIME OF ABORT: <b id="emergency-time" class="text-red-400">03.42 SEC</b></div>
+        <div class="mt-2 text-yellow-300">REPORT: Specimen was successfully yanked before total structural disintegration occurred. However, sogginess is actively spreading. Immediate human mastication recommended!</div>
+      </div>
+
+      <div style="text-align: center;">
+        <button id="close-emergency-btn" class="btn-emergency-abort" style="margin: 0 auto;">
+          <span>🍪</span>
+          <span>ACKNOWLEDGE &amp; CONSUME SPECIMEN</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blackbox History Drawer Modal -->
+  <div id="blackbox-modal" class="cyber-modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="glass-panel" style="max-width: 600px; width: 100%;">
+      <div class="section-header">
+        <h3 class="section-title">
+          <span>📊</span>
+          <span>LABORATORY BLACKBOX EXPERIMENT LOG</span>
+        </h3>
+        <button id="close-blackbox-btn" class="header-btn">✕</button>
+      </div>
+      <div id="blackbox-log-list" style="max-height: 400px; overflow-y: auto;">
+        <div class="p-6 text-center text-slate-500 font-mono text-sm">NO PREVIOUS EXPERIMENTAL TELEMETRY RECORDED.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 3rem 1.5rem; border-top: 1px solid rgba(0, 240, 255, 0.15); margin-top: 5rem; position: relative; z-index: 2;">
+    <div class="font-heading text-sm font-bold text-slate-300 tracking-wider">
+      🍪 DUNK-O-METER 9000 // INTERNATIONAL BISCUIT INTEGRITY LAB
+    </div>
+    <p class="font-mono text-xs text-slate-500 mt-2 max-w-lg mx-auto leading-relaxed">
+      No biscuits were emotionally harmed during the making of this simulation. All submerged crumbs have been responsibly recycled into afternoon tea.
+    </p>
+    <div class="font-mono text-[10px] text-cyan-400 mt-2">
+      USELESS PROJECT CHAMPIONSHIP EDITION // 100% UNNECESSARY SCIENCE
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/chamber.js"></script>
+  <script src="js/results.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
