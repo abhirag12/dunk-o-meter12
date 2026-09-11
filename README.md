@@ -36,7 +36,8 @@ For Software:
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)<img width="1600" height="900" alt="Screenshot 2026-09-11 165333" src="https://github.com/user-attachments/assets/df3680b0-4c4b-4980-9fbf-a797c7f54a32" />
+# Screenshots (Add at least 3)
+<img width="1600" height="900" alt="Screenshot 2026-09-11 165333" src="https://github.com/user-attachments/assets/df3680b0-4c4b-4980-9fbf-a797c7f54a32" />
 
 
 <img width="1599" height="900" alt="Screenshot 2026-09-11 165423" src="https://github.com/user-attachments/assets/97ccf6f9-7e2a-4263-9662-c8cdf056a2ec" />
